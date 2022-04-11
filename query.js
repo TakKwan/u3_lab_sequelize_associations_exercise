@@ -6,8 +6,10 @@ function stringify(data) {
 
 const getAllUsers = async () => {
   try {
-    // execute query here
-    // Return the result
+    const res = await User.findAll({
+      include: { model: Article }
+    })
+    stringify(res)
   } catch (error) {
     console.log(error)
     return false
@@ -16,8 +18,6 @@ const getAllUsers = async () => {
 
 const articlesWithCreator = async () => {
   try {
-    // execute query here
-    // Return the result
   } catch (error) {
     console.log(error)
     return false
@@ -41,3 +41,5 @@ module.exports = {
   getAllUsers,
   stringify
 }
+
+getAllUsers()
